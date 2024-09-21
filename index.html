@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netlify SPA 예제</title>
+    <title>배경색 바꾸기 예제</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,47 +11,24 @@
             padding-top: 50px;
         }
 
-        nav {
-            margin-bottom: 20px;
-        }
-
-        a {
-            text-decoration: none;
-            color: #007BFF;
-            padding: 10px;
-        }
-
-        a:hover {
-            text-decoration: underline;
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="/">홈</a>
-        <a href="/about">소개</a>
-        <a href="/contact">연락처</a>
-    </nav>
-
-    <h1>Netlify에서의 단일 페이지 애플리케이션 예제</h1>
-    <p>이 페이지는 Netlify에서 라우팅 문제를 해결한 SPA 예제입니다.</p>
+    <h1>배경색 바꾸기 예제</h1>
+    <p>버튼을 눌러 페이지 배경색을 변경하세요!</p>
+    <button onclick="changeBackgroundColor()">배경색 바꾸기</button>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 페이지의 경로에 따라 콘텐츠를 다르게 표시하는 간단한 라우팅 예제
-            const path = window.location.pathname;
-            const content = document.createElement('p');
-
-            if (path === '/about') {
-                content.textContent = '소개 페이지입니다.';
-            } else if (path === '/contact') {
-                content.textContent = '연락처 페이지입니다.';
-            } else {
-                content.textContent = '홈 페이지입니다.';
-            }
-
-            document.body.appendChild(content);
-        });
+        function changeBackgroundColor() {
+            const colors = ['#FFCCCC', '#CCFFCC', '#CCCCFF', '#FFFF99', '#FF99FF'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+        }
     </script>
 </body>
 </html>
